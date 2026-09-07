@@ -45,7 +45,7 @@ erDiagram
         int Gift_ID PK
         string Gift_Name
         string Gift_Description
-        Location FK
+        int Location FK
     }
     GIFTS {
         int ID_In_Gifts PK
