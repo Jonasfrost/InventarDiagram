@@ -26,10 +26,7 @@ erDiagram
         int Warehouse_ID PK
         string Location
     }
-   SERIAL_No{
-        int Serial_No_ID PK
-        int Serial_no
-    }
+   
     LENT_OUT {
         int Lent-ID PK
         int Item_ID FK
@@ -59,6 +56,10 @@ erDiagram
         string After_correction
         int Item_ID
         string Correction_Date
+    }
+    SERIAL_No{
+        int Serial_No_ID PK
+        int Serial_no
     }
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ROLE ||--o{ EMPLOYEE : "has"
