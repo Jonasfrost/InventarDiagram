@@ -6,7 +6,7 @@ erDiagram
         string Last_name
         string Student_mail
         string mail
-        int Role_ID_FK
+        int Role_ID FK
         int Instructor_ID
     }
     ROLE {
@@ -21,10 +21,10 @@ erDiagram
         string Name
         string Model
         string Serial_No
+        string Location
     }
     WAREHOUSE {
-        int Item_ID_FK
-        string Quantity_serial_no
+        int Warehouse_ID
         string Location
     }
    SERIAL_No{
@@ -32,32 +32,32 @@ erDiagram
         int Serial_no
     }
     LENT_OUT {
-        int Item_ID_FK
-        int Person_ID_FK
+        int Item_ID FK
+        int Person_ID FK
         string Lent_date
-        int Return_ID_FK
-        string Delivery_date
+        int Return_ID
+        string Return_date
         string Responsible
-        string Serial_no
-        string Description
+        string Serial_no FK
+        string Lent_Description
     }
     ITEM_GIFTS {
-        int ID
+        int Gift_ID
         string Name
-        string Desc
+        string Gift_Description
     }
     GIFTS {
         int ID_In_Gifts
-        int ID_Person
+        int ID_Person FK
         string Free_text
     }
     HISTORY {
-        int ID_PK
-        int Login_ID
+        int History_ID_PK
+        int Person_ID
         string Before_correction
         string After_correction
         int Item_ID
-        string Date
+        string Correction_Date
     }
 
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
