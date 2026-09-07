@@ -62,11 +62,11 @@ erDiagram
     }
     EMPLOYEE ||--|{ LENT_OUT : ""
     EMPLOYEE ||--|{ ROLE : ""
-    ITEM ||--|| WAREHOUSE : ""
+    ITEM }|--|| WAREHOUSE : ""
     ITEM ||--|| LENT_OUT : ""
     SERIAL_No ||--|| ITEM : ""
     HISTORY ||--|{ ITEM : ""
     HISTORY ||--|{ EMPLOYEE : ""
-    ITEM_GIFTS ||--|| WAREHOUSE : ""
+    ITEM_GIFTS ||--|{ WAREHOUSE : ""
     GIFTS ||--|| ITEM_GIFTS : ""
     GIFTS ||--|{ EMPLOYEE : ""
