@@ -17,7 +17,7 @@ erDiagram
     }
     ITEM {
         int Item_ID PK
-        string Name
+        string Item_Name
         string Model
         string Serial_No
         string Location
@@ -43,7 +43,7 @@ erDiagram
     }
     ITEM_GIFTS {
         int Gift_ID PK
-        string Name
+        string Gift_Name
         string Gift_Description
     }
     GIFTS {
