@@ -60,8 +60,8 @@ erDiagram
     }
 
     ROLE ||--o{ EMPLOYEE : "has"
-    INVENTORY ||--o{ WAREHOUSE : "located_in"
-    INVENTORY ||--o{ LENT_OUT : "included_in"
+    ITEM ||--o{ WAREHOUSE : "located_in"
+    ITEM ||--o{ LENT_OUT : "included_in"
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ITEM_GIFTS ||--o{ GIFTS : "has"
     
