@@ -60,13 +60,13 @@ erDiagram
         int Serial_No_ID PK
         int Serial_no
     }
-    EMPLOYEE ||--o{ LENT_OUT : "borrows"
-    ROLE ||--o{ EMPLOYEE : "has"
-    ITEM ||--o{ WAREHOUSE : "located_in"
-    ITEM ||--o{ LENT_OUT : "included_in"
-    SERIAL_No ||--o{ ITEM : "has"
-    HISTORY ||--o{ ITEM : "includes"
-    HISTORY ||--o{ EMPLOYEE : "includes"
-    ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
-    GIFTS ||--o{ ITEM_GIFTS : "has"
-    GIFTS ||--o{ EMPLOYEE : "has"
+    EMPLOYEE |--{ LENT_OUT : ""
+    EMPLOYEE |--{ ROLE : ""
+    ITEM |--| WAREHOUSE : ""
+    ITEM |--| LENT_OUT : ""
+    SERIAL_No |--| ITEM : ""
+    HISTORY |--{ ITEM : ""
+    HISTORY |--{ EMPLOYEE : ""
+    ITEM_GIFTS |--| WAREHOUSE : ""
+    GIFTS |--| ITEM_GIFTS : ""
+    GIFTS |--{ EMPLOYEE : ""
