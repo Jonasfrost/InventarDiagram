@@ -7,7 +7,6 @@ erDiagram
         string Student_mail
         string mail
         int Role_ID FK
-        int Instructor_ID
     }
     ROLE {
         int Role_ID PK
