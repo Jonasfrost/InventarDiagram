@@ -16,7 +16,7 @@ erDiagram
         string Apprentice
         string Operations
     }
-    INVENTORY {
+    ITEM {
         string Item_ID PK
         string Name
         string Model
@@ -25,9 +25,6 @@ erDiagram
         string Item_ID_FK
         string Quantity_serial_no
         string Location
-    }
-    LOCATION_LOCKER {
-        string Warehouse_location
     }
     LENT_OUT {
         string Item_ID_FK
@@ -67,6 +64,7 @@ erDiagram
     INVENTORY ||--o{ LENT_OUT : "included_in"
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ITEM_GIFTS ||--o{ GIFTS : "has"
+    
     
     
     
