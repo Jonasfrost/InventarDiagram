@@ -24,15 +24,15 @@ erDiagram
         string Location
     }
     WAREHOUSE {
-        int Warehouse_ID
+        int Warehouse_ID PK
         string Location
     }
    SERIAL_No{
-        int Serial_No_ID
+        int Serial_No_ID PK
         int Serial_no
     }
     LENT_OUT {
-        int Lent-ID FK
+        int Lent-ID PK
         int Item_ID FK
         int Person_ID FK
         string Lent_date
@@ -43,12 +43,12 @@ erDiagram
         string Lent_Description
     }
     ITEM_GIFTS {
-        int Gift_ID
+        int Gift_ID PK
         string Name
         string Gift_Description
     }
     GIFTS {
-        int ID_In_Gifts
+        int ID_In_Gifts PK
         int ID_Person FK
         string Free_text
     }
