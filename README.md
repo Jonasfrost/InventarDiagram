@@ -65,9 +65,11 @@ erDiagram
     ITEM ||--o{ WAREHOUSE : "located_in"
     ITEM ||--o{ LENT_OUT : "included_in"
     SERIAL_No ||--o{ ITEM : "has"
-    ITEM_GIFTS ||--o{ GIFTS : "has"
     HISTORY ||--o{ ITEM : "includes"
     HISTORY ||--o{ EMPLOYEE : "includes"
     ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
+    ITEM_GIFTS ||--o{ GIFTS : "has"
+    GIFT ||--o{ EMPLOTEE : "man idk"
+    
     
     
