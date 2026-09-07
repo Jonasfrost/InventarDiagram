@@ -53,7 +53,7 @@ erDiagram
         int Person_ID
         string Before_correction
         string After_correction
-        int Item_ID
+        int Item_ID FK
         string Correction_Date
     }
     SERIAL_No{
