@@ -14,7 +14,7 @@ erDiagram
         string Leader
         string Instructor
         string Apprentice
-        string Operations
+        string Drift
     }
     ITEM {
         int Item_ID PK
