@@ -5,7 +5,7 @@ erDiagram
         string First_name
         string Last_name
         string Student_mail
-        string Unique_mail
+        string mail
         string Role_ID_FK
         string Instructor_ID
     }
@@ -66,3 +66,5 @@ erDiagram
     INVENTORY ||--o{ WAREHOUSE : "located_in"
     INVENTORY ||--o{ LENT_OUT : "included_in"
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
+    
+    
