@@ -20,6 +20,7 @@ erDiagram
         string Item_ID PK
         string Name
         string Model
+        string Serial_No
     }
     WAREHOUSE {
         string Item_ID_FK
@@ -35,10 +36,6 @@ erDiagram
         string Responsible
         string Serial_no
         string Description
-    }
-    SERIAL_NO {
-        string Id
-        string Serial_Nr
     }
     ITEM_GIFTS {
         string Name
