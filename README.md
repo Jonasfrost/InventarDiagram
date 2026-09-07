@@ -53,7 +53,7 @@ erDiagram
         string Free_text
     }
     HISTORY {
-        int History_ID_PK
+        int History_ID PK
         int Person_ID
         string Before_correction
         string After_correction
