@@ -69,7 +69,7 @@ erDiagram
     HISTORY ||--o{ EMPLOYEE : "includes"
     ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
     ITEM_GIFTS ||--o{ GIFTS : "has"
-    GIFT ||--o{ EMPLOTEE : "man idk"
+    GIFTS ||--o{ EMPLOTEE : "man idk"
     
     
     
