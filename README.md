@@ -68,6 +68,6 @@ erDiagram
     ITEM_GIFTS ||--o{ GIFTS : "has"
     HISTORY ||--o{ ITEM : "includes"
     HISTORY ||--o{ EMPLOYEE : "includes"
-    
+    ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
     
     
