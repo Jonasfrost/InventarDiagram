@@ -32,6 +32,7 @@ erDiagram
         int Serial_no
     }
     LENT_OUT {
+        int Lent-ID FK
         int Item_ID FK
         int Person_ID FK
         string Lent_date
