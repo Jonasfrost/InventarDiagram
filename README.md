@@ -56,10 +56,10 @@ erDiagram
         string Date
     }
 
+    EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ROLE ||--o{ EMPLOYEE : "has"
     ITEM ||--o{ WAREHOUSE : "located_in"
     ITEM ||--o{ LENT_OUT : "included_in"
-    EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ITEM_GIFTS ||--o{ GIFTS : "has"
     HISTORY ||--o{ ITEM : "includes"
     HISTORY ||--o{ EMPLOYEE : "includes"
