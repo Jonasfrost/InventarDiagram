@@ -26,7 +26,6 @@ erDiagram
         int Warehouse_ID PK
         string Location
     }
-   
     LENT_OUT {
         int Lent-ID PK
         int Item_ID FK
