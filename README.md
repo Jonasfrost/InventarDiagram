@@ -6,8 +6,8 @@ erDiagram
         string Last_name
         string Student_mail
         string mail
-        string Role_ID_FK
-        string Instructor_ID
+        int Role_ID_FK
+        int Instructor_ID
     }
     ROLE {
         int Role_ID PK
@@ -33,9 +33,9 @@ erDiagram
     }
     LENT_OUT {
         int Item_ID_FK
-        string Person_ID_FK
+        int Person_ID_FK
         string Lent_date
-        string Return_ID_FK
+        int Return_ID_FK
         string Delivery_date
         string Responsible
         string Serial_no
