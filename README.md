@@ -1,6 +1,12 @@
-```mermaid
 erDiagram
-    EMPLOYEE {
+    Role {
+        int Role_ID PK
+        string Leader
+        string Instructor
+        string Apprentice
+        string Drift
+    }
+    Employee {
         int Person_ID PK
         string First_name
         string Last_name
@@ -8,68 +14,54 @@ erDiagram
         string mail
         int Role_ID FK
     }
-    ROLE {
-        int Role_ID PK
-        string Leader
-        string Instructor
-        string Apprentice
-        string Drift
+    Warehouse {
+        int Warehouse_ID PK
+        string Location
     }
-    ITEM {
+    Serial_No {
+        int Serial_No_ID PK
+        string Serial_no
+    }
+    Item {
         int Item_ID PK
         string Item_Name
         string Model
         string Serial_No
         string Location
     }
-    WAREHOUSE {
-        int Warehouse_ID PK
-        string Location
-    }
-   SERIAL_No{
-        int Serial_No_ID PK
-        int Serial_no
-    }
-    LENT_OUT {
-        int Lent-ID PK
+    Lent_Out {
+        int Lent_ID PK
         int Item_ID FK
         int Person_ID FK
         string Lent_date
         int Return_ID
         string Return_date
         string Responsible
-        string Serial_no FK
+        string Serial_no
         string Lent_Description
     }
-    ITEM_GIFTS {
+    Item_Gifts {
         int Gift_ID PK
         string Gift_Name
         string Gift_Description
     }
-    GIFTS {
+    Gifts {
         int ID_In_Gifts PK
         int ID_Person FK
         string Free_text
     }
-    HISTORY {
+    History {
         int History_ID PK
-        int Person_ID
+        int Person_ID FK
         string Before_correction
         string After_correction
-        int Item_ID
+        int Item_ID FK
         string Correction_Date
     }
 
-    EMPLOYEE ||--o{ LENT_OUT : "borrows"
-    ROLE ||--o{ EMPLOYEE : "has"
-    ITEM ||--o{ WAREHOUSE : "located_in"
-    ITEM ||--o{ LENT_OUT : "included_in"
-    SERIAL_No ||--o{ ITEM : "has"
-    HISTORY ||--o{ ITEM : "includes"
-    HISTORY ||--o{ EMPLOYEE : "includes"
-    ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
-    ITEM_GIFTS ||--o{ GIFTS : "has"
-    GIFTS ||--o{ EMPLOYEE : "has"
-    
-    
-    
+    Role ||--o{ Employee : "has"
+    Employee ||--o{ Lent_Out : "borrows"
+    Item ||--o{ Lent_Out : "included_in"
+    Employee ||--o{ Gifts : "has"
+    Employee ||--o{ History : "includes"
+    Item ||--o{ History : "includes"
