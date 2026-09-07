@@ -28,8 +28,8 @@ erDiagram
         string Location
     }
    SERIAL_No{
-        Serial_No_ID
-        Serial_no
+        int Serial_No_ID
+        int Serial_no
     }
     LENT_OUT {
         int Item_ID_FK
