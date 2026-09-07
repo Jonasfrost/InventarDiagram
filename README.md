@@ -61,7 +61,8 @@ erDiagram
     ITEM ||--o{ LENT_OUT : "included_in"
     EMPLOYEE ||--o{ LENT_OUT : "borrows"
     ITEM_GIFTS ||--o{ GIFTS : "has"
-    
+    HISTORY ||--o{ ITEM : "includes"
+    HISTORY ||--o{ EMPLOYEE : "includes"
     
     
     
