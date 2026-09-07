@@ -19,8 +19,8 @@ erDiagram
         int Item_ID PK
         string Item_Name
         string Model
-        string Serial_No
-        string Location
+        string Serial_No FK
+        string Location FK
     }
     WAREHOUSE {
         int Warehouse_ID PK
@@ -69,7 +69,3 @@ erDiagram
     ITEM_GIFTS ||--o{ WAREHOUSE : "located_in"
     ITEM_GIFTS ||--o{ GIFTS : "has"
     GIFTS ||--o{ EMPLOYEE : "has"
-    
-    
-    
-lav dettetil sql
