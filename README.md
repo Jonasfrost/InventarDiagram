@@ -1,6 +1,7 @@
+```mermaid
 erDiagram
-    direction LR
 
+    direction LR
     subgraph "Brugere & Rettigheder"
         ROLE {
             int Id PK
