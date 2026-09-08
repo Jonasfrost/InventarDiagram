@@ -18,7 +18,7 @@ erDiagram
     ITEM {
         int Id PK
         string Serial_No FK
-        string Location FK
+        string WAREHOUSE_Location FK
         string Status
     }
     WAREHOUSE {
@@ -55,11 +55,11 @@ erDiagram
         int Item_ID FK
         string Correction_Date
     }
-    SERIAL_No{
+    SERIAL{
         int Id PK
         int Serial_no
-        string Item_Name FK
-        string Model FK
+        string Item_Name
+        string Model
     }
     EMPLOYEE ||--|{ LENT_OUT : ""
     EMPLOYEE ||--|| ROLE : ""
