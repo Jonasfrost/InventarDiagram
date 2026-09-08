@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
     ROLE {
         int Id PK
