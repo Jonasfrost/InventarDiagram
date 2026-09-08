@@ -17,7 +17,7 @@ erDiagram
     }
     ITEM {
         int Id PK
-        string Serial_No FK
+        string Serial FK
         string WAREHOUSE_Location FK
         string Status
     }
