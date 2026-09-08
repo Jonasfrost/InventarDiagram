@@ -93,19 +93,19 @@ erDiagram
     end
 
     %% Relationer: Brugere & Rettigheder
-    ROLE o|--|{ EMPLOYEE : "tildeles"
-    ROLE o|--|{ ROLE_PERMISSION : "indeholder"
-    PERMISSION o|--|{ ROLE_PERMISSION : "tilknyttes"
+    ROLE ||--|{ EMPLOYEE : "tildeles"
+    ROLE ||--|{ ROLE_PERMISSION : "indeholder"
+    PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
 
     %% Relationer: Lager & Genstande
-    MODEL o|--|{ ITEM : "definerer"
+    MODEL ||--|{ ITEM : "definerer"
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
-    ITEM o|--o| SERIAL : "kan_have"
+    ITEM ||--o| SERIAL : "kan_have"
 
     %% Relationer: Udlån & Historik
     EMPLOYEE o|--o{ LENT_OUT : "låner"
-    EMPLOYEE o|--o{ LENT_OUT : "ansvarlig_for"
+    EMPLOYEE ||--o{ LENT_OUT : "ansvarlig_for"
     EMPLOYEE o|--o{ HISTORY : "udfører"
     ITEM o|--o{ LENT_OUT : "udlånes_i"
     ITEM o|--o{ HISTORY : "logges_i"
