@@ -1,5 +1,7 @@
 ```mermaid
 erDiagram
+    direction LR
+
     ROLE {
         int Id PK
         string Role_Name
@@ -104,6 +106,12 @@ erDiagram
     MODEL o|--|{ ITEM : "definerer"
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
+    
+    ITEM o|--o| SERIAL : "kan_have"
+    ITEM o|--o{ LENT_OUT : "udlånes_i"
+    ITEM o|--o{ HISTORY : "logges_i"
+
+    ITEM_GIFTS o|--o{ GIFTS : "tildeles_i"
     
     ITEM o|--o| SERIAL : "kan_have"
     ITEM o|--o{ LENT_OUT : "udlånes_i"
