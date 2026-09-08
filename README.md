@@ -21,6 +21,7 @@ erDiagram
         string Model
         string Serial_No FK
         string Location FK
+        string Status
     }
     WAREHOUSE {
         int Warehouse_ID PK
