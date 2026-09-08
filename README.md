@@ -20,7 +20,6 @@ erDiagram
             int Id PK
             string First_Name
             string Last_Name
-            string Student_Mail
             string Mail
             int Role_Id FK
         }
