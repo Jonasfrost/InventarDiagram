@@ -65,7 +65,7 @@ erDiagram
     EMPLOYEE ||--|| ROLE : ""
     ITEM }|--|| WAREHOUSE : ""
     ITEM ||--|| LENT_OUT : ""
-    SERIAL_No ||--|| ITEM : ""
+    SERIAL ||--|| ITEM : ""
     HISTORY ||--|{ ITEM : ""
     HISTORY ||--|{ EMPLOYEE : ""
     ITEM_GIFTS ||--|{ WAREHOUSE : ""
