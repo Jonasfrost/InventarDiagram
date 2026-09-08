@@ -58,8 +58,8 @@ erDiagram
     SERIAL_No{
         int Id PK
         int Serial_no
-        string Item_Name
-        string Model
+        string Item_Name FK
+        string Model FK
     }
     EMPLOYEE ||--|{ LENT_OUT : ""
     EMPLOYEE ||--|| ROLE : ""
