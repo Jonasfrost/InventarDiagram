@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
-
     direction LR
+
     subgraph "Brugere & Rettigheder"
         ROLE {
             int Id PK
@@ -30,6 +30,7 @@ erDiagram
         CATEGORY {
             int Id PK
             string Category_Name
+            string Description
         }
         MODEL {
             int Id PK
@@ -55,6 +56,27 @@ erDiagram
             int Id PK
             int Item_Id FK
             string Serial_No
+        }
+    end
+
+    subgraph "Arkiv (Inaktive Data)"
+        ARCHIVED_EMPLOYEE {
+            int Id PK
+            string First_Name
+            string Last_Name
+            string Student_Mail
+            string Mail
+            int Original_Role_Id
+            datetime Archived_Date
+            string Reason
+        }
+        ARCHIVED_ITEM {
+            int Id PK
+            int Original_Item_Id
+            int Model_Id
+            string Serial_No
+            datetime Archived_Date
+            string Reason
         }
     end
 
@@ -108,6 +130,10 @@ erDiagram
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
     ITEM ||--o| SERIAL : "kan_have"
+
+    %% Relationer: Arkiv
+    EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
+    ITEM o|--o| ARCHIVED_ITEM : "flyttes_til"
 
     %% Relationer: Udlån & Historik
     EMPLOYEE o|--o{ LENT_OUT : "låner"
