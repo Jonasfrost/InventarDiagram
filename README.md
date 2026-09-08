@@ -30,7 +30,6 @@ erDiagram
         CATEGORY {
             int Id PK
             string Category_Name
-            string Description
         }
         MODEL {
             int Id PK
