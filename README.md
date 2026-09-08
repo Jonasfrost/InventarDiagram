@@ -20,17 +20,6 @@ erDiagram
         int Id PK
         string First_Name
         string Last_Name
-        int Role_Id FK
-    }
-
-    ROLE o|--|{ EMPLOYEE : "tildeles"
-    ROLE o|--|{ ROLE_PERMISSION : "indeholder"
-    PERMISSION o|--|{ ROLE_PERMISSION : "tilknyttes"
-
-    EMPLOYEE {
-        int Id PK
-        string First_Name
-        string Last_Name
         string Student_Mail
         string Mail
         int Role_Id FK
@@ -42,11 +31,9 @@ erDiagram
         string Brand
     }
 
-    SERIAL {
+    ITEM_STATUS {
         int Id PK
-        string Serial_No
-        string Item_Name
-        int Model_Id FK
+        string Status_Name
     }
 
     WAREHOUSE {
@@ -56,9 +43,15 @@ erDiagram
 
     ITEM {
         int Id PK
-        int Serial_Id FK
+        int Model_Id FK
         int Warehouse_Id FK
-        string Status
+        int Status_Id FK
+    }
+
+    SERIAL {
+        int Id PK
+        int Item_Id FK
+        string Serial_No
     }
 
     LENT_OUT {
@@ -93,20 +86,27 @@ erDiagram
         int Id PK
         int Employee_Id FK
         int Item_Gift_Id FK
-        string Free_Text
+        int Given_By_Employee_Id FK
         datetime Given_Date
+        string Free_Text
     }
 
-    ROLE ||--|{ EMPLOYEE : "har"
-    EMPLOYEE ||--|{ LENT_OUT : "låner"
-    EMPLOYEE ||--|{ LENT_OUT : "ansvarlig_for"
-    EMPLOYEE ||--|{ HISTORY : "udfører"
-    EMPLOYEE ||--|{ GIFTS : "modtager"
+    ROLE o|--|{ EMPLOYEE : "tildeles"
+    ROLE o|--|{ ROLE_PERMISSION : "indeholder"
+    PERMISSION o|--|{ ROLE_PERMISSION : "tilknyttes"
 
-    MODEL ||--|{ SERIAL : "definerer"
-    SERIAL ||--|{ ITEM : "tilhører"
-    WAREHOUSE ||--|{ ITEM : "opbevarer"
-    ITEM ||--|{ LENT_OUT : "udlånes_i"
-    ITEM ||--|{ HISTORY : "logges_i"
+    EMPLOYEE o|--o{ LENT_OUT : "låner"
+    EMPLOYEE o|--o{ LENT_OUT : "ansvarlig_for"
+    EMPLOYEE o|--o{ HISTORY : "udfører"
+    EMPLOYEE o|--o{ GIFTS : "modtager"
+    EMPLOYEE o|--o{ GIFTS : "udleverer"
 
-    ITEM_GIFTS ||--|{ GIFTS : "tildeles_i"
+    MODEL o|--|{ ITEM : "definerer"
+    ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
+    WAREHOUSE o|--o{ ITEM : "opbevarer"
+    
+    ITEM o|--o| SERIAL : "kan_have"
+    ITEM o|--o{ LENT_OUT : "udlånes_i"
+    ITEM o|--o{ HISTORY : "logges_i"
+
+    ITEM_GIFTS o|--o{ GIFTS : "tildeles_i"
