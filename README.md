@@ -61,7 +61,7 @@ erDiagram
         int Serial_no
     }
     EMPLOYEE ||--|{ LENT_OUT : ""
-    EMPLOYEE ||---| ROLE : ""
+    EMPLOYEE ||--|| ROLE : ""
     ITEM }|--|| WAREHOUSE : ""
     ITEM ||--|| LENT_OUT : ""
     SERIAL_No ||--|| ITEM : ""
