@@ -6,7 +6,7 @@ erDiagram
         string Last_name
         string Student_mail
         string mail
-        int Role_ID FK
+        int Role_Id FK
     }
     ROLE {
         int Id PK
@@ -27,13 +27,13 @@ erDiagram
     }
     LENT_OUT {
         int Id PK
-        int Item_ID FK
-        int Person_ID FK
+        int Item_Id FK
+        int Person_Id FK
         string Lent_date
-        int Return_ID
+        int Return_Id
         string Return_date
         string Responsible
-        string Serial_no FK
+        string Serial FK
         string Lent_Description
     }
     ITEM_GIFTS {
@@ -49,10 +49,10 @@ erDiagram
     }
     HISTORY {
         int Id PK
-        int Employee_ID
+        int Employee_Id
         string Before_correction
         string After_correction
-        int Item_ID FK
+        int Item_Id FK
         string Correction_Date
     }
     SERIAL{
