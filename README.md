@@ -1,4 +1,3 @@
-```mermaid
 erDiagram
     direction LR
 
@@ -27,10 +26,16 @@ erDiagram
     end
 
     subgraph "Lager & Genstande"
+        CATEGORY {
+            int Id PK
+            string Category_Name
+            string Description
+        }
         MODEL {
             int Id PK
             string Model_Name
             string Brand
+            int Category_Id FK
         }
         ITEM_STATUS {
             int Id PK
@@ -98,6 +103,7 @@ erDiagram
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
 
     %% Relationer: Lager & Genstande
+    CATEGORY ||--|{ MODEL : "kategoriserer"
     MODEL ||--|{ ITEM : "definerer"
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
