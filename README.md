@@ -49,7 +49,7 @@ erDiagram
     }
     HISTORY {
         int Id PK
-        int Person_ID
+        int Employee_ID
         string Before_correction
         string After_correction
         int Item_ID FK
