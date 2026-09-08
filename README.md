@@ -1,7 +1,7 @@
 ```mermaid
 erDiagram
     EMPLOYEE {
-        int Person_ID PK
+        int Id PK
         string First_name
         string Last_name
         string Student_mail
@@ -9,26 +9,24 @@ erDiagram
         int Role_ID FK
     }
     ROLE {
-        int Role_ID PK
+        int Id PK
         string Leader
         string Instructor
         string Apprentice
         string Drift
     }
     ITEM {
-        int Item_ID PK
-        string Item_Name
-        string Model
+        int Id PK
         string Serial_No FK
         string Location FK
         string Status
     }
     WAREHOUSE {
-        int Warehouse_ID PK
+        int Id PK
         string Location
     }
     LENT_OUT {
-        int Lent-ID PK
+        int Id PK
         int Item_ID FK
         int Person_ID FK
         string Lent_date
@@ -39,18 +37,18 @@ erDiagram
         string Lent_Description
     }
     ITEM_GIFTS {
-        int Gift_ID PK
+        int Id PK
         string Gift_Name
         string Gift_Description
         int Location FK
     }
     GIFTS {
-        int ID_In_Gifts PK
-        int ID_Person FK
+        int Id PK
+        int Employee_Id FK
         string Free_text
     }
     HISTORY {
-        int History_ID PK
+        int Id PK
         int Person_ID
         string Before_correction
         string After_correction
@@ -58,8 +56,10 @@ erDiagram
         string Correction_Date
     }
     SERIAL_No{
-        int Serial_No_ID PK
+        int Id PK
         int Serial_no
+        string Item_Name
+        string Model
     }
     EMPLOYEE ||--|{ LENT_OUT : ""
     EMPLOYEE ||--|| ROLE : ""
