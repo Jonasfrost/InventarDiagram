@@ -5,6 +5,28 @@ erDiagram
         string Role_Name
     }
 
+    PERMISSION {
+        int Id PK
+        string Permission_Name
+        string Description
+    }
+
+    ROLE_PERMISSION {
+        int Role_Id FK
+        int Permission_Id FK
+    }
+
+    EMPLOYEE {
+        int Id PK
+        string First_Name
+        string Last_Name
+        int Role_Id FK
+    }
+
+    ROLE o|--|{ EMPLOYEE : "tildeles"
+    ROLE o|--|{ ROLE_PERMISSION : "indeholder"
+    PERMISSION o|--|{ ROLE_PERMISSION : "tilknyttes"
+
     EMPLOYEE {
         int Id PK
         string First_Name
