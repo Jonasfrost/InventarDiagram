@@ -3,6 +3,7 @@ erDiagram
     direction LR
 
     subgraph "Brugere & Rettigheder"
+        direction TB
         ROLE {
             int Id PK
             string Role_Name
@@ -26,6 +27,7 @@ erDiagram
     end
 
     subgraph "Lager & Genstande"
+        direction TB
         CATEGORY {
             int Id PK
             string Category_Name
@@ -37,13 +39,13 @@ erDiagram
             string Brand
             int Category_Id FK
         }
-        ITEM_STATUS {
-            int Id PK
-            string Status_Name
-        }
         WAREHOUSE {
             int Id PK
             string Location_Name
+        }
+        ITEM_STATUS {
+            int Id PK
+            string Status_Name
         }
         ITEM {
             int Id PK
@@ -54,28 +56,8 @@ erDiagram
         }
     end
 
-    subgraph "Arkiv (Inaktive Data)"
-        ARCHIVED_EMPLOYEE {
-            int Id PK
-            string First_Name
-            string Last_Name
-            string Student_Mail
-            string Mail
-            int Original_Role_Id
-            datetime Archived_Date
-            string Reason
-        }
-        ARCHIVED_ITEM {
-            int Id PK
-            int Original_Item_Id
-            int Model_Id
-            string Serial_No
-            datetime Archived_Date
-            string Reason
-        }
-    end
-
     subgraph "Udlån & Historik"
+        direction TB
         LENT_OUT {
             int Id PK
             int Item_Id FK
@@ -99,6 +81,7 @@ erDiagram
     end
 
     subgraph "Gaver"
+        direction TB
         ITEM_GIFTS {
             int Id PK
             string Gift_Name
@@ -114,29 +97,52 @@ erDiagram
         }
     end
 
-    %% Relationer: Brugere & Rettigheder
+    subgraph "Arkiv"
+        direction TB
+        ARCHIVED_EMPLOYEE {
+            int Id PK
+            string First_Name
+            string Last_Name
+            string Student_Mail
+            string Mail
+            int Original_Role_Id
+            datetime Archived_Date
+            string Reason
+        }
+        ARCHIVED_ITEM {
+            int Id PK
+            int Original_Item_Id
+            int Model_Id
+            string Serial_No
+            datetime Archived_Date
+            string Reason
+        }
+    end
+
+    %% Intern logik: Brugere
     ROLE ||--|{ EMPLOYEE : "tildeles"
     ROLE ||--|{ ROLE_PERMISSION : "indeholder"
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
 
-    %% Relationer: Lager & Genstande
+    %% Intern logik: Lager
     CATEGORY ||--|{ MODEL : "kategoriserer"
     MODEL ||--|{ ITEM : "definerer"
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
 
-    %% Relationer: Arkiv
-    EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
-    ITEM o|--o| ARCHIVED_ITEM : "flyttes_til"
+    %% Intern logik: Gaver
+    ITEM_GIFTS o|--o{ GIFTS : "tildeles_i"
 
-    %% Relationer: Udlån & Historik
+    %% Kryds-relationer: Aktivitet
     EMPLOYEE o|--o{ LENT_OUT : "låner"
     EMPLOYEE ||--o{ LENT_OUT : "ansvarlig_for"
     EMPLOYEE o|--o{ HISTORY : "udfører"
+    EMPLOYEE o|--o{ GIFTS : "modtager"
+    EMPLOYEE o|--o{ GIFTS : "udleverer"
+
     ITEM o|--o{ LENT_OUT : "udlånes_i"
     ITEM o|--o{ HISTORY : "logges_i"
 
-    %% Relationer: Gaver
-    EMPLOYEE o|--o{ GIFTS : "modtager"
-    EMPLOYEE o|--o{ GIFTS : "udleverer"
-    ITEM_GIFTS o|--o{ GIFTS : "tildeles_i"
+    %% Kryds-relationer: Arkiv
+    EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
+    ITEM o|--o| ARCHIVED_ITEM : "flyttes_til"
