@@ -43,10 +43,6 @@ erDiagram
             int Id PK
             string Location_Name
         }
-        ITEM_STATUS {
-            int Id PK
-            string Status_Name
-        }
         ITEM {
             int Id PK
             int Model_Id FK
@@ -127,7 +123,6 @@ erDiagram
     %% Intern logik: Lager
     CATEGORY ||--|{ MODEL : "kategoriserer"
     MODEL ||--|{ ITEM : "definerer"
-    ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
 
     %% Intern logik: Gaver
