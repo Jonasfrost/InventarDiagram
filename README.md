@@ -50,11 +50,7 @@ erDiagram
             int Model_Id FK
             int Warehouse_Id FK
             int Status_Id FK
-        }
-        SERIAL {
-            int Id PK
-            int Item_Id FK
-            string Serial_No
+            string Serial
         }
     end
 
