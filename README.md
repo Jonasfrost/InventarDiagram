@@ -124,7 +124,6 @@ erDiagram
     MODEL ||--|{ ITEM : "definerer"
     ITEM_STATUS o|--o{ ITEM : "angiver_tilstand"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
-    ITEM ||--o| SERIAL : "kan_have"
 
     %% Relationer: Arkiv
     EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
