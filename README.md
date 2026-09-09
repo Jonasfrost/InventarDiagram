@@ -36,7 +36,6 @@ erDiagram
         MODEL {
             int Id PK
             string Model_Name
-            string Brand
             int Category_Id FK
         }
         WAREHOUSE {
