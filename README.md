@@ -3,7 +3,7 @@ erDiagram
     direction LR
 
     subgraph "Brugere & Rettigheder"
-        direction TB
+        direction LR
         ROLE {
             int Id PK
             string Role_Name
