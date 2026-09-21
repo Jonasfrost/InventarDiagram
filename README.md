@@ -44,11 +44,11 @@ erDiagram
         }
         ITEM {
             int Id PK
+            string Name
             int Model_Id FK
             int Warehouse_Id FK
             string Status
             string Serial
-            string Name
         }
     end
 
