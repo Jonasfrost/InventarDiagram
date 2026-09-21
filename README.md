@@ -48,6 +48,7 @@ erDiagram
             int Warehouse_Id FK
             string Status
             string Serial
+            string Name
         }
     end
 
