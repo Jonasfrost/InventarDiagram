@@ -116,7 +116,6 @@ erDiagram
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
 
     %% Intern logik: Lager
-    CATEGORY ||--|{ MODEL : "kategoriserer"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
 
     %% Intern logik: Gaver
@@ -131,6 +130,7 @@ erDiagram
 
     ITEM o|--o{ LENT_OUT : "udlånes_i"
     ITEM o|--o{ HISTORY : "logges_i"
+    ITEM ||--|| CATEGORY: ""
 
     %% Kryds-relationer: Arkiv
     EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
