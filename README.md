@@ -33,11 +33,6 @@ erDiagram
             string Category_Name
             string Description
         }
-        MODEL {
-            int Id PK
-            string Model_Name
-            int Category_Id FK
-        }
         WAREHOUSE {
             int Id PK
             string Location_Name
@@ -45,7 +40,7 @@ erDiagram
         ITEM {
             int Id PK
             string Name
-            int Model_Id FK
+            int Model
             int Warehouse_Id FK
             string Status
             string Serial
