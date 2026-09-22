@@ -40,7 +40,7 @@ erDiagram
         ITEM {
             int Id PK
             string Name
-            int Model
+            string Model
             int Warehouse_Id FK
             string Status
             string Serial
@@ -117,7 +117,6 @@ erDiagram
 
     %% Intern logik: Lager
     CATEGORY ||--|{ MODEL : "kategoriserer"
-    MODEL ||--|{ ITEM : "definerer"
     WAREHOUSE o|--o{ ITEM : "opbevarer"
 
     %% Intern logik: Gaver
