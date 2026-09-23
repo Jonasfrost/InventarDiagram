@@ -41,7 +41,7 @@ erDiagram
             int Id PK
             string Name
             string Model
-            int Warehouse_Id FK
+            int Warehouse_Id 
             string Status
             string Serial
         }
