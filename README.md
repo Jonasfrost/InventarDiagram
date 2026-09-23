@@ -36,12 +36,13 @@ erDiagram
         WAREHOUSE {
             int Id PK
             string Location_Name
+            int WarehouseId
         }
         ITEM {
             int Id PK
             string Name
             string Model
-            int Warehouse_Id 
+            int WarehouseId 
             string Status
             string Serial
         }
