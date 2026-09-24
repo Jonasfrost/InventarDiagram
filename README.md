@@ -31,7 +31,6 @@ erDiagram
         CATEGORY {
             int Id PK
             string Category_Name
-            string Description
         }
         WAREHOUSE {
             int Id PK
