@@ -116,22 +116,22 @@ erDiagram
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
 
     %% Intern logik: Lager
-    WAREHOUSE o|--o{ ITEM : "opbevarer"
+    WAREHOUSE ||--|{ ITEM : "opbevarer"
 
     %% Intern logik: Gaver
-    ITEM_GIFTS o|--o{ GIFTS : "tildeles_i"
+    ITEM_GIFTS ||--|{ GIFTS : "tildeles_i"
 
     %% Kryds-relationer: Aktivitet
-    EMPLOYEE o|--o{ LENT_OUT : "låner"
-    EMPLOYEE ||--o{ LENT_OUT : "ansvarlig_for"
-    EMPLOYEE o|--o{ HISTORY : "udfører"
-    EMPLOYEE o|--o{ GIFTS : "modtager"
-    EMPLOYEE o|--o{ GIFTS : "udleverer"
+    EMPLOYEE ||--|{ LENT_OUT : "låner"
+    EMPLOYEE ||--|{ LENT_OUT : "ansvarlig_for"
+    EMPLOYEE ||--|{ HISTORY : "udfører"
+    EMPLOYEE ||--|{ GIFTS : "modtager"
+    EMPLOYEE ||--|{ GIFTS : "udleverer"
 
-    ITEM o|--o{ LENT_OUT : "udlånes_i"
-    ITEM o|--o{ HISTORY : "logges_i"
+    ITEM ||--|{ LENT_OUT : "udlånes_i"
+    ITEM ||--|{ HISTORY : "logges_i"
     ITEM ||--|| CATEGORY: ""
 
     %% Kryds-relationer: Arkiv
-    EMPLOYEE o|--o| ARCHIVED_EMPLOYEE : "flyttes_til"
-    ITEM o|--o| ARCHIVED_ITEM : "flyttes_til"
+    EMPLOYEE ||--|| ARCHIVED_EMPLOYEE : "flyttes_til"
+    ITEM ||--|| ARCHIVED_ITEM : "flyttes_til"
