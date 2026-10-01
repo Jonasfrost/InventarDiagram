@@ -2,136 +2,76 @@
 erDiagram
     direction LR
 
-    subgraph "Brugere & Rettigheder"
-        direction LR
-        ROLE {
-            int Id PK
-            string Role_Name
-        }
-        PERMISSION {
-            int Id PK
-            string Permission_Name
-            string Description
-        }
-        ROLE_PERMISSION {
-            int Role_Id FK
-            int Permission_Id FK
-        }
-        EMPLOYEE {
-            int Id PK
-            string First_Name
-            string Last_Name
-            string Mail
-            int Role_Id FK
-        }
-    end
+    erDiagram
+    CATEGORY {
+        int id PK
+        varchar category_name
+    }
 
-    subgraph "Lager & Genstande"
-        direction TB
-        CATEGORY {
-            int Id PK
-            string Category_Name
-        }
-        WAREHOUSE {
-            int Id PK
-            string Location_Name
-            int WarehouseId
-        }
-        ITEM {
-            int Id PK
-            string Name
-            string Model
-            int WarehouseId FK
-            string Status
-            string Serial
-        }
-    end
+    WAREHOUSE {
+        int id PK
+        varchar location_name
+    }
 
-    subgraph "Udlån & Historik"
-        direction TB
-        LENT_OUT {
-            int Id PK
-            int Item_Id FK
-            int Borrower_Employee_Id FK
-            int Responsible_Employee_Id FK
-            datetime Lent_Date
-            datetime Expected_Return_Date
-            datetime Actual_Return_Date
-            string Description
-        }
-        HISTORY {
-            int Id PK
-            int Item_Id FK
-            int Employee_Id FK
-            datetime Log_Date
-            string Action_Type
-            string Field_Name
-            string Before_Value
-            string After_Value
-        }
-    end
+    MODEL {
+        int id PK
+        varchar model_name
+        int category_id FK
+    }
 
-    subgraph "Gaver"
-        direction TB
-        ITEM_GIFTS {
-            int Id PK
-            string Gift_Name
-            string Gift_Description
-        }
-        GIFTS {
-            int Id PK
-            int Employee_Id FK
-            int Item_Gift_Id FK
-            int Given_By_Employee_Id FK
-            datetime Given_Date
-            string Free_Text
-        }
-    end
+    ITEM {
+        int id PK
+        int warehouse_id FK
+        varchar status
+        varchar serial
+        varchar name
+        varchar model_name
+        int category_id FK
+    }
 
-    subgraph "Arkiv"
-        direction TB
-        ARCHIVED_EMPLOYEE {
-            int Id PK
-            string First_Name
-            string Last_Name
-            string Student_Mail
-            string Mail
-            int Original_Role_Id
-            datetime Archived_Date
-            string Reason
-        }
-        ARCHIVED_ITEM {
-            int Id PK
-            int Original_Item_Id
-            int Model_Id
-            string Serial_No
-            datetime Archived_Date
-            string Reason
-        }
-    end
+    EMPLOYEE {
+        int id PK
+        varchar first_name
+        varchar last_name
+        varchar mail
+        int role_id FK
+    }
 
-    %% Intern logik: Brugere
-    ROLE ||--|{ EMPLOYEE : "tildeles"
-    ROLE ||--|{ ROLE_PERMISSION : "indeholder"
+    ROLE {
+        int id PK
+        varchar role_name
+    }
+
+    PERMISSION {
+        int id PK
+        varchar permission_name
+        varchar description
+    }
+
+    ROLE_PERMISSION {
+        int role_id PK, FK
+        int permission_id PK, FK
+    }
+
+    LOAN {
+        int id PK
+        int employee_id FK
+        datetime loan_date
+        datetime expected_return_date
+        datetime actual_return_date
+    }
+
+    LOAN_ITEM {
+        int loan_id PK, FK
+        int item_id PK, FK
+    }
+
+    CATEGORY ||--|{ ITEM : "kategoriserer"
+    CATEGORY ||--|{ MODEL : "indeholder"
+    WAREHOUSE ||--|{ ITEM : "huser"
+    ROLE ||--|{ EMPLOYEE : "har"
+    ROLE ||--|{ ROLE_PERMISSION : "tildeles"
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
-
-    %% Intern logik: Lager
-    WAREHOUSE ||--|{ ITEM : "opbevarer"
-
-    %% Intern logik: Gaver
-    ITEM_GIFTS ||--|{ GIFTS : "tildeles_i"
-
-    %% Kryds-relationer: Aktivitet
-    EMPLOYEE ||--|{ LENT_OUT : "låner"
-    EMPLOYEE ||--|{ LENT_OUT : "ansvarlig_for"
-    EMPLOYEE ||--|{ HISTORY : "udfører"
-    EMPLOYEE ||--|{ GIFTS : "modtager"
-    EMPLOYEE ||--|{ GIFTS : "udleverer"
-
-    ITEM ||--|{ LENT_OUT : "udlånes_i"
-    ITEM ||--|{ HISTORY : "logges_i"
-    ITEM ||--|| CATEGORY: ""
-
-    %% Kryds-relationer: Arkiv
-    EMPLOYEE ||--|| ARCHIVED_EMPLOYEE : "flyttes_til"
-    ITEM ||--|| ARCHIVED_ITEM : "flyttes_til"
+    EMPLOYEE ||--|{ LOAN : "foretager"
+    LOAN ||--|{ LOAN_ITEM : "omfatter"
+    ITEM ||--|{ LOAN_ITEM : "udlånes_i"
