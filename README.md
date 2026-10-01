@@ -2,7 +2,6 @@
 erDiagram
     direction LR
 
-    erDiagram
     CATEGORY {
         int id PK
         varchar category_name
