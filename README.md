@@ -42,7 +42,6 @@ erDiagram
         PERMISSION {
             int id PK
             varchar permission_name
-            varchar description
         }
 
         ROLE_PERMISSION {
