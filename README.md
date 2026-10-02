@@ -65,11 +65,6 @@ erDiagram
             datetime expected_return_date
             datetime actual_return_date
         }
-
-        LOAN_ITEM {
-            int loan_id PK, FK
-            int item_id PK, FK
-        }
     end
 
     CATEGORY ||--|{ ITEM : "kategoriserer"
