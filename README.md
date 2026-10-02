@@ -14,12 +14,6 @@ erDiagram
             varchar location_name
         }
 
-        MODEL {
-            int id PK
-            varchar model_name
-            int category_id FK
-        }
-
         ITEM {
             int id PK
             int warehouse_id FK
@@ -68,7 +62,6 @@ erDiagram
     end
 
     CATEGORY ||--|{ ITEM : "kategoriserer"
-    CATEGORY ||--|{ MODEL : "indeholder"
     WAREHOUSE ||--|{ ITEM : "huser"
     ROLE ||--|{ EMPLOYEE : "har"
     ROLE ||--|{ ROLE_PERMISSION : "tildeles"
