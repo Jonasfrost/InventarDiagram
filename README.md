@@ -74,5 +74,4 @@ erDiagram
     ROLE ||--|{ ROLE_PERMISSION : "tildeles"
     PERMISSION ||--|{ ROLE_PERMISSION : "tilknyttes"
     EMPLOYEE ||--|{ LOAN : "foretager"
-    LOAN ||--|{ LOAN_ITEM : "omfatter"
-    ITEM ||--|{ LOAN_ITEM : "udlånes_i"
+    ITEM ||--|| LOAN : ""
